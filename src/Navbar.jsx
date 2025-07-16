@@ -64,7 +64,7 @@ const Navbar = () => {
 
 
               <li className="nav-item">
-                <Link className="nav-link fs-5 text-white custom-hover" to="/signin">SIGN IN</Link>
+                <Link className="nav-link fs-5 text-white custom-hover" to="/signin">Sign IN</Link>
               </li>
             </ul>
           </div>
