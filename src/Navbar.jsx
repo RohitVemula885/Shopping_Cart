@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "./index.css"
 import { useSelector } from 'react-redux'
+import { FaCartPlus } from 'react-icons/fa'
 
 const Navbar = () => {
   const cartCount = useSelector((state) =>
@@ -44,11 +45,18 @@ const Navbar = () => {
                 </Link>
               </li> */}
 
+              <li className="nav-item">
+                <Link className="nav-link fs-5 text-white custom-hover" to="/signin">
+                  <button className="button">LOGIN</button>
+                </Link>
+              </li>
 
               <li className="nav-item">
                 <Link className="nav-link fs-5 text-white custom-hover" to="/cart">
                   <div className="position-relative d-inline-block">
-                    CART
+                    {/* <h1>&#x1F6D2;</h1> */}
+                    <FaCartPlus size={37} style={{ color: 'white', cursor: 'pointer' }} />
+
                     {cartCount > 0 && (
                       <span
                         className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
@@ -63,9 +71,6 @@ const Navbar = () => {
 
 
 
-              <li className="nav-item">
-                <Link className="nav-link fs-5 text-white custom-hover" to="/signin">SIGN IN</Link>
-              </li>
             </ul>
           </div>
         </div>

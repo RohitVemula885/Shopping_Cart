@@ -5,14 +5,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const About = () => {
   return (
     <>
-      <section
-  className="py-5"
-  style={{
-    backgroundColor: '#acc5fa',
-    minHeight: '100vh'
-  }}
->
-  <div className="container">
+      <section className="py-5" style={{backgroundColor: '#acc5fa',minHeight: '100vh'}}>
+        
+    <div className="container">
     <div className="p-4 bg-white rounded shadow-sm">
       <h1 className="text-center text-uppercase mb-4 fw-bold text-success">About SMART</h1>
 
