@@ -2,11 +2,28 @@ import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchProduct } from './productslicer'
 import { addtocart } from './cartslicer'
-import Signin from '../../Signin'
+import { useNavigate } from 'react-router-dom'
+
 
 const Products = () => {
   const dispatch = useDispatch()
   const { products, loading, error } = useSelector((state) => state.products)
+  const user=useSelector((state)=>state.auth.user)
+  const navigate=useNavigate()
+
+ 
+  const handleBuy = (value) => {
+    if (!user) {
+      navigate("/signin");
+    } else {
+      const purchasedProduct = {
+      ...value,
+      quantity: 1,
+      
+    };
+      navigate("/success", { state: { purchasedItem: purchasedProduct } }); 
+    }
+  }
 
   useEffect(() => {
     dispatch(fetchProduct())
@@ -35,9 +52,13 @@ const Products = () => {
                 <h5 className="card-title">{product.title}</h5>
                 <p className="card-text fw-bold text-success">${product.price}</p>
 
+                {/* <h1>{product.rating?.rate} ⭐</h1> */}
+
+                <p>{Array.from({ length: Math.round(product.rating?.rate) }, (_, i) => (<span key={i}>⭐</span>))}</p>
+
                 <div className="d-flex flex-wrap gap-4 mt-3 justify-content-center justify-content-md-start">
                 <button  className="btn btn-warning mt-auto" style={{color:"white"}} onClick={()=>dispatch(addtocart(product))}>ADD TO CART</button>
-                <button className="btn btn-primary mt-auto px-5" >BUY</button>
+                <button className="btn btn-primary mt-3 px-4" onClick={() => handleBuy(product)} >BUY</button>
                 </div>
 
               </div>
@@ -47,7 +68,7 @@ const Products = () => {
       </div>
     </div>
         </section>
-        <Signin/>
+        
         </>
         
   )

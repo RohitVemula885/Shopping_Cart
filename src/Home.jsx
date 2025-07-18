@@ -6,13 +6,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import myImg3 from './pic2.webp';
-import myImg1 from "./images (4).jpeg"
-import myImg2 from "./images.jpeg"
-import myImg4 from "./images (1).jpeg"
-import myImg5 from "./images (2).jpeg"
-import myImg6 from "./images (3).jpeg"
-
 
 const Home = () => {
    var settings = {
