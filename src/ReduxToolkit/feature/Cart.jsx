@@ -108,10 +108,12 @@ const Cart = () => {
 
         {cartItem.length > 0 && (
           <div className="text-center mt-4">
-            <button className='btn btn-success me-3' onClick={handlebuyall}>BUY ALL PRODUCTS</button>
+            <div className="d-flex justify-content-center gap-3 mb-3">
+            <button className='btn btn-success mb-4' onClick={handlebuyall}>BUY ALL PRODUCTS</button>
             <button className="btn btn-danger mb-4 float  " onClick={() => dispatch(clearcart())}>
               ❌ Clear Cart
             </button>
+            </div>
             <h2><strong style={{ color: "green" }}>Cart Total:</strong> ${totalPrice.toFixed(2)}</h2>
           </div>
 
