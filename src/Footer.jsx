@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
-    <footer className=" text-white pt-4 pb-2 mt-auto" style={{ background: 'linear-gradient(90deg, #7ed6df, #70a1ff)',fontFamily: "Georgia, serif" }}>
+    <footer className=" text-white pt-4 pb-2 mt-auto" style={{ background: 'linear-gradient(90deg, #148f9cff, #70a1ff)',fontFamily: "Georgia, serif" }}>
       <div className="container text-center text-md-start">
         <div className="row">
 
