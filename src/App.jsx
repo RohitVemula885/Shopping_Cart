@@ -8,6 +8,7 @@ import Cart from './ReduxToolkit/feature/Cart'
 import Signin from './ReduxToolkit/feature/Signin'
 import Success from './Success'
 import LoginSuccess from '../LoginSuccess'
+import Footer from './Footer.jsx'
 
 
 const App = () => {
@@ -21,7 +22,8 @@ const App = () => {
       {path:"/cart",element:<Cart/>},
       {path:"/signin",element:<Signin/>},
       {path:"/success",element:<Success/>},
-      {path:"/loginsuccess",element:<LoginSuccess/>}
+      {path:"/loginsuccess",element:<LoginSuccess/>},
+      {path:"/footer",element:<Footer/>}
     ]
   }])
   return (

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchProduct } from './productslicer'
 import { addtocart } from './cartslicer'
 import { useNavigate } from 'react-router-dom'
+import Footer from '../../Footer'
 
 
 const Products = () => {
@@ -68,7 +69,7 @@ const Products = () => {
       </div>
     </div>
         </section>
-        
+        <Footer/>
         </>
         
   )
