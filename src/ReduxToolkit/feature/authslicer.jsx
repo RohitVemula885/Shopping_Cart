@@ -12,7 +12,8 @@ const authSlice=createSlice({
     name:"auth",
     initialState:{
         user:null,
-        error:null
+        error:null,
+        isloggedIn:false
     },
 
     reducers:{
@@ -24,16 +25,20 @@ const authSlice=createSlice({
             if(user){
                 state.user=user
                 state.error=null
+                state.isloggedIn=true
+
             }
             else{
                 state.user=null
                 state.error="INVALID USER"
+                state.isloggedIn=false
             }
         },
         logout:(state)=>{
             state.user=null
             state.error=null
-        }
+        },
+    
     }
 })
 

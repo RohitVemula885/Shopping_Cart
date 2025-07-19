@@ -2,12 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import "./index.css"
 import { useSelector } from 'react-redux'
-import { FaCartPlus } from 'react-icons/fa'
+import { FaCartPlus, FaCheckCircle, FaUser } from 'react-icons/fa'
 
 const Navbar = () => {
   const cartCount = useSelector((state) =>
     state.cart.items.reduce((total, item) => total + item.quantity, 0)
   )
+
+  const isloggedIn=useSelector((state)=>state.auth.isloggedIn)
   return (
     <>
       <nav className="navbar navbar-expand-lg sticky-top " style={{ background: 'linear-gradient(90deg, #7ed6df, #70a1ff)', fontFamily: "Georgia, 'Times New Roman', Times, serif" }}>
@@ -47,7 +49,7 @@ const Navbar = () => {
 
               <li className="nav-item">
                 <Link className="nav-link fs-5 text-white custom-hover" to="/signin">
-                  <button className="button">LOGIN</button>
+                  <button className='button' >{isloggedIn ? <FaCheckCircle size={20} color='green'/> : <FaUser size={20}/>}</button>
                 </Link>
               </li>
 
