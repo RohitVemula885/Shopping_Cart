@@ -1,21 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const Success = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const [orderId,setOrderId]=useState("")
   // const product = location.state?.purchasedItem;
 
   const single = location.state?.purchasedItem;
   const multiple = Array.isArray(single) ? single : null;
   const products = multiple || (single ? [single] : []);
 
+  useEffect(()=>{
+    const fakeId=  Math.floor(1000000 + Math.random() * 9000000)
+    setOrderId(fakeId)
+    // console.log(fakeId);
+  },[])
+  
   
 
 
   if (products.length === 0) {
     return (
-      <div className="container mt-5 text-center">
+      <div style={{backgroundColor:"#acc5fa",minHeight:"100vh",padding: '40px 0',textAlign:"center",color:"white"}}>
         <h3>No purchase found</h3>
         <button className="btn btn-primary mt-3" onClick={() => navigate("/product")}>Shop Now</button>
       </div>
@@ -26,6 +33,7 @@ const Success = () => {
     <div style={{backgroundColor:"#acc5fa",minHeight:"100vh",padding: '40px 0'}}>
     <div className="container mt-5 text-center">
       <h1 className="text-success mb-4">✅ Purchase Successful!</h1>
+      <h4 style={{color:"green"}}>ORDER ID - <strong style={{color:"red"}}>{orderId}</strong></h4>
       {products.map((item, index) => (  
         <div className="card mb-3 mx-auto" style={{ maxWidth: "400px" }} key={index}>
           <div  className="card h-60 shadow-sm" >
