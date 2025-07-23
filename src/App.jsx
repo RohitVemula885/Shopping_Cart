@@ -9,6 +9,7 @@ import Signin from './ReduxToolkit/feature/Signin'
 import Success from './Success'
 import LoginSuccess from '../LoginSuccess'
 import Footer from './Footer.jsx'
+import Terms from './Terms.jsx'
 
 
 const App = () => {
@@ -23,8 +24,8 @@ const App = () => {
       {path:"/signin",element:<Signin/>},
       {path:"/success",element:<Success/>},
       {path:"/loginsuccess",element:<LoginSuccess/>},
-      {path:"/footer",element:<Footer/>}
-    ]
+      {path:"/footer",element:<Footer/>},
+      {path:"/term",element:<Terms/>}    ]
   }])
   return (
     <div>

@@ -12,6 +12,11 @@ const Footer = () => {
             <p>Bringing you quality products at the best prices.</p>
             <p>Email: support@smartshop.com</p>
             <p>Developed by <i>-Rohit Vemula</i></p>
+            <div>
+
+            <a href="./term" className='text-white'>Terms and Condition</a> <br />
+            {/* <a href="./privacy" className='text-white'>Privacy Policy</a> */}
+            </div>
             {/* <p>Phone: +91 98765 43210</p> */}
           </div>
         </div>

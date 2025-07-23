@@ -54,6 +54,7 @@ const Products = () => {
                 <p className="card-text fw-bold text-success">${product.price}</p>
 
                 {/* <h1>{product.rating?.rate} ⭐</h1> */}
+                
 
                 <p>{Array.from({ length: Math.round(product.rating?.rate) }, (_, i) => (<span key={i}>⭐</span>))}</p>
 
@@ -61,7 +62,6 @@ const Products = () => {
                 <button  className="btn btn-warning mt-auto" style={{color:"white"}} onClick={()=>dispatch(addtocart(product))}>ADD TO CART</button>
                 <button className="btn btn-primary mt-3 px-4" onClick={() => handleBuy(product)} >BUY</button>
                 </div>
-
               </div>
             </div>
           </div>
