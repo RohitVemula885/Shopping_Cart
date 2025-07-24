@@ -35,8 +35,8 @@ const Cart = () => {
     if (!user) {
       navigate("/signin");
     } else {
-      dispatch(removefromcart(value.id)); // remove just that item
-      navigate("/success", { state: { purchasedItem: value } }); // pass item to success page
+      dispatch(removefromcart(value.id)); 
+      navigate("/success", { state: { purchasedItem: value } }); 
     }
   }
 

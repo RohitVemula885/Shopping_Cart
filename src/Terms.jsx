@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaArrowDown, FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import { Link } from 'react-router-dom'
 
 const Terms = () => {
   return (
@@ -13,7 +14,10 @@ const Terms = () => {
         <li><FaArrowRight/> We reserve the right to modify or discontinue services.</li>
         <li><FaArrowRight/> Misuse of the website will result in suspension.</li>
       </ul>
-      <p>For any questions, please contact support@smart.com.</p>
+      <p>For any questions, please contact support@smart.com.</p><br />
+      <Link to="/">
+      <button className='btn btn-primary'>Back To Home</button>
+      </Link>
     </div>
     </div>
   )
