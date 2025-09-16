@@ -18,7 +18,11 @@ const authSlice=createSlice({
 
     reducers:{
         login:(state,action)=>{
-            const{username,password}=action.payload
+            let{username,password}=action.payload
+
+            username = username.toLowerCase();
+            password = password.toLowerCase();
+
             const user=fakeusers.find((u)=>
                 u.username === username && u.password === password
             )

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const LoginSuccess = () => {
   return (
@@ -6,7 +7,11 @@ const LoginSuccess = () => {
      <div className="container mt-5 text-center">
       <div className="card shadow p-4 mx-auto" style={{ maxWidth: "500px", backgroundColor: "#e7f4e4" }}>
         <h1 className="text-success mb-3">✅ LOGIN SUCCESSFUL</h1>
-        <h4 className="text-muted">Now you can buy products</h4>
+        {/* <h4 className="text-muted">Now you can buy products</h4> */}
+        <Link to="/product">
+        <button className='btn btn-warning mt-auto' style={{color:"white"}}>Now You Can Start Shopping</button>
+        </Link> 
+
       </div>
     </div>
     </div>
