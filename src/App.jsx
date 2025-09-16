@@ -17,7 +17,7 @@ const App = () => {
     path:"/",
     element:<RootLayout/>,
     children:[
-      {path:'/',element:<Home/>},
+      {index:true,element:<Home/>},
       {path:"/about",element:<About/>},
       {path:"/product",element:<Products/>},
       {path:"/cart",element:<Cart/>},
@@ -28,7 +28,7 @@ const App = () => {
       {path:"/term",element:<Terms/>}    ]
   }],
   {
-    basename: import.meta.env.BASE_URL, 
+    basename: "/Shopping_Cart", 
   })
   return (
     <div>
