@@ -104,7 +104,7 @@ const Cart = () => {
             <p className="text-muted">Looks like you haven't added anything to your cart yet.</p>
             <Link to="/product"><button className="btn btn-primary mt-3">Shop Now</button></Link>
           </div>
-        )},
+        )}
 
         {cartItem.length > 0 && (
           <div className="text-center mt-4">
