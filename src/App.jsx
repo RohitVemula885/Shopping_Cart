@@ -26,7 +26,10 @@ const App = () => {
       {path:"/loginsuccess",element:<LoginSuccess/>},
       {path:"/footer",element:<Footer/>},
       {path:"/term",element:<Terms/>}    ]
-  }])
+  }],
+  {
+    basename: import.meta.env.BASE_URL, 
+  })
   return (
     <div>
       <RouterProvider router={route}></RouterProvider>
