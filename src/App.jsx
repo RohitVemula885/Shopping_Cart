@@ -10,6 +10,7 @@ import Success from './Success'
 import LoginSuccess from '../LoginSuccess'
 import Footer from './Footer.jsx'
 import Terms from './Terms.jsx'
+import { ToastContainer } from 'react-toastify'
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
   return (
     <div>
       <RouterProvider router={route}></RouterProvider>
+      <ToastContainer/>
       
     </div>
   )

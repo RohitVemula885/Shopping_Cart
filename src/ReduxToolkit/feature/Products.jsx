@@ -4,6 +4,7 @@ import { fetchProduct } from './productslicer'
 import { addtocart } from './cartslicer'
 import { useNavigate } from 'react-router-dom'
 import Footer from '../../Footer'
+import { toast } from 'react-toastify'
 
 
 const Products = () => {
@@ -23,6 +24,10 @@ const Products = () => {
       
     };
       navigate("/success", { state: { purchasedItem: purchasedProduct } }); 
+      toast.success("Item purchased successfully!", {
+      position: "top-left",
+      autoClose: 1300,
+      })
     }
   }
 
@@ -61,6 +66,7 @@ const Products = () => {
                 <div className="d-flex flex-wrap gap-4 mt-3 justify-content-center justify-content-md-start">
                 <button  className="btn btn-warning mt-auto" style={{color:"white"}} onClick={()=>dispatch(addtocart(product))}>ADD TO CART</button>
                 <button className="btn btn-primary mt-3 px-4" onClick={() => handleBuy(product)} >BUY</button>
+              
                 </div>
               </div>
             </div>

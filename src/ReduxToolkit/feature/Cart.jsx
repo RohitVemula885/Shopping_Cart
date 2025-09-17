@@ -3,10 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addtocart, clearcart, decreasecart, removefromcart } from './cartslicer'
 import myImg from './img_remove.png';
 import { Link, useNavigate } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
 
 const Cart = () => {
-
   const cartItem = useSelector(state => state.cart.items)
   const dispatch = useDispatch()
 
@@ -18,25 +17,16 @@ const Cart = () => {
   const user = useSelector((state) => state.auth.user)
   const navigate = useNavigate()
 
-  // const handleBuy=()=>{
-  //   if(!user){
-  //     navigate("/signin")
-  //   }
-  //   else{
-  //     // dispatch(clearcart())
-  //     navigate("/success")
-  //   }
-  // }
-
- 
-
-
   const handleBuy = (value) => {
     if (!user) {
       navigate("/signin");
     } else {
       dispatch(removefromcart(value.id)); 
       navigate("/success", { state: { purchasedItem: value } }); 
+      toast.success("Item purchased successfully!", {
+        position: "top-left",
+        autoClose: 1300,
+      })
     }
   }
 
@@ -47,14 +37,16 @@ const Cart = () => {
       const purchasedItem = [...cartItem];
       dispatch(clearcart())
       navigate("/success", { state: { purchasedItem } })
+      toast.success("All items purchased successfully!", {
+        position: "top-left",
+        autoClose: 1300,
+      })
     }
   }
-
 
   return (
     <div style={{ backgroundColor: "#acc5fa", minHeight: "100vh", padding: "20px" }}>
       <div className="container mt-4" >
-        {/* <h1 className="text-center mb-4">🛒 Cart</h1> */}
         <h1 className="text-center mb-4 fw-bold" style={{ color: '#0b3d91', fontSize: '2.8rem', letterSpacing: '1px', textShadow: '1px 1px 2px rgba(0,0,0,0.2)', whiteSpace: "normal", wordBreak: "break-word" }}>
           🛒 Your Shopping Cart
         </h1>
@@ -83,13 +75,11 @@ const Cart = () => {
                       TOTAL: ${value.price * value.quantity}
                     </p>
                     <div className="d-flex flex-wrap gap-3 mt-3 justify-content-center justify-content-md-start">
-
                       <button className="btn btn-danger" onClick={() => dispatch(removefromcart(value.id))}>
                         🗑 Remove
                       </button>
                       <button className="btn btn-warning mt-auto px-5" style={{ color: "white", minWidth: "100px" }} onClick={() => handleBuy(value)}>BUY </button>
                     </div >
-
                   </div>
                 </div>
               </div>
@@ -97,7 +87,7 @@ const Cart = () => {
           })}
         </div>
 
-        {cartItem.length == 0 && (
+        {cartItem.length === 0 && (
           <div className="d-flex flex-column justify-content-center align-items-center text-center mt-5">
             <img src={myImg} alt="" className="img-fluid mb-4" style={{ maxWidth: "400px" }} />
             <h1 className="text-secondary">YOUR CART IS EMPTY</h1>
@@ -109,19 +99,15 @@ const Cart = () => {
         {cartItem.length > 0 && (
           <div className="text-center mt-4">
             <div className="d-flex justify-content-center gap-3 mb-3">
-            <button className='btn btn-success mb-4' onClick={handlebuyall}>BUY ALL PRODUCTS</button>
-            <button className="btn btn-danger mb-4 float  " onClick={() => dispatch(clearcart())}>
-              ❌ Clear Cart
-            </button>
+              <button className='btn btn-success mb-4' onClick={handlebuyall}>BUY ALL PRODUCTS</button>
+              <button className="btn btn-danger mb-4" onClick={() => dispatch(clearcart())}>
+                ❌ Clear Cart
+              </button>
             </div>
             <h2><strong style={{ color: "green" }}>Cart Total:</strong> ${totalPrice.toFixed(2)}</h2>
           </div>
-
-
         )}
       </div>
-
-
     </div>
   )
 }
